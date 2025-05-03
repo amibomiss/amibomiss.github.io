@@ -24,6 +24,7 @@
       background-color: var(--bg-light);
       color: var(--text-light);
       transition: background-color 0.3s, color 0.3s;
+      padding: 0 1rem;
     }
 
     .dark-mode {
@@ -31,38 +32,27 @@
       color: var(--text-dark);
     }
 
-    .wrapper {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
     nav {
       background-color: #f0f0f0;
-      padding: 1rem 0.5rem;
+      padding: 1rem;
       text-align: center;
       position: fixed;
       width: 100%;
       top: 0;
       left: 0;
       z-index: 999;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     nav a {
-      margin: 0 0.8rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
       text-decoration: none;
       color: inherit;
       font-weight: bold;
-    }
-
-    @media(min-width: 600px) {
-      nav a {
-        margin: 0 1.2rem;
-        font-size: 1.2rem;
-      }
+      padding: 0.5rem 0.7rem;
     }
 
     .dark-mode nav {
@@ -74,18 +64,21 @@
     }
 
     header {
-      padding: 6rem 0 3rem;
+      padding: 6rem 1rem 3rem;
+      max-width: var(--max-width);
+      margin: auto;
       text-align: center;
     }
 
     header h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
     header p {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: #555;
+      margin: 0.3rem 0;
     }
 
     .dark-mode header p {
@@ -109,45 +102,6 @@
     p {
       font-size: 1.3rem;
       line-height: 1.6;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      border-radius: 20px;
-      object-fit: cover;
-    }
-
-    .about-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .about-img {
-      flex: 1;
-      position: relative;
-    }
-
-    .about-text {
-      flex: 2;
-    }
-
-    @media(min-width: 768px) {
-      .about-container {
-        flex-direction: row;
-        align-items: stretch;
-      }
-
-      .about-img {
-        max-width: 300px;
-        height: auto;
-      }
-
-      .about-img .profile-img {
-        height: 100%;
-      }
     }
 
     .video-grid {
@@ -241,6 +195,8 @@
       background-color: #ffffff;
       color: #000000;
     }
+    
+    /* Responsivité et ajustement pour les petits écrans */
     @media (max-width: 1100px) {
       nav a {
         font-size: 0.9rem;
@@ -281,6 +237,7 @@
       .contact-right {
         display: none;
       }
+    }
   </style>
 </head>
 
@@ -288,12 +245,10 @@
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
   <nav>
-    <div class="wrapper">
-      <a href="#" onclick="window.scrollTo(0, 0)">Accueil</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#about">À propos</a>
-      <a href="/contact/">Contact</a>
-    </div>
+    <a href="/" onclick="window.scrollTo(0, 0)">Accueil</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">À propos</a>
+    <a href="/contact/">Contact</a>
   </nav>
 
   <main class="wrapper">
@@ -327,29 +282,18 @@
       <h2>À propos</h2>
       <div class="about-container">
         <div class="about-img">
-          <img src="https://i.pinimg.com/736x/b9/9b/65/b99b653a6967ccbe782372647f10c896.jpg" alt="Noé Méric" class="profile-img" />
-          <div class="social-btns">
-            <a href="https://www.youtube.com/@Oxteon" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/oxteon/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-          </div>
+          <img src="https://i.pinimg.com/736x/b9/9b/65/b99b653a6967ccbe782372647f10c896.jpg" alt="Noé Méric" class="profile-img"/>
         </div>
         <div class="about-text">
-          <p>Je m’appelle Noé Meric. Je suis un étudiant de 18 ans et passionné de vidéo depuis plus de 10 ans. Je m’y suis mis sérieusement il y a 4 ans et j’ai commencé à avoir mes premiers clients fin 2023. Depuis, je ne cesse de m’améliorer avec l’expérience.</p>
-          <p>Je réalise tout type de vidéos : corporate, clips, formats réseaux, présentations, etc. J’ai créé mon entreprise récemment pour professionnaliser mon activité.</p>
+          <p>Je suis Noé Meric, vidéaste freelance passionné par la création de vidéos percutantes et originales. Mon travail couvre tous les aspects de la production vidéo, de la pré-production à la post-production. Mon objectif est de transformer vos idées en images.</p>
         </div>
       </div>
     </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Une idée de projet ? Une demande particulière ? Cliquez <a href="/contact/" target="_blank" rel="noopener noreferrer"> ici </a> pour prendre contact avec moi.</p>
-      <p>Je réponds sous 24h et nous pouvons organiser un appel vidéo pour clarifier votre besoin avant devis.</p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Noé Meric — Tous droits réservés.
-    </footer>
   </main>
+
+  <footer>
+    © <span id="year"></span> Noé Meric — Tous droits réservés.
+  </footer>
 
   <script>
     function toggleDarkMode() {
