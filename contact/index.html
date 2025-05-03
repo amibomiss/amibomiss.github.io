@@ -24,6 +24,7 @@
       background-color: var(--bg-light);
       color: var(--text-light);
       transition: background-color 0.3s, color 0.3s;
+      padding: 0 1rem;
     }
 
     .dark-mode {
@@ -41,14 +42,18 @@
       left: 0;
       z-index: 999;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
     }
 
     nav a {
-      margin: 0 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-decoration: none;
       color: inherit;
       font-weight: bold;
+      padding: 0.5rem 0.7rem;
     }
 
     .dark-mode nav {
@@ -67,14 +72,14 @@
     }
 
     header h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
     header p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #555;
-      line-height: 1.5;
+      margin: 0.3rem 0;
     }
 
     .dark-mode header p {
@@ -83,18 +88,19 @@
 
     .contact-container {
       display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      justify-content: space-between;
+      align-items: flex-start;
       flex-wrap: wrap;
-      padding: 2rem 1rem;
+      gap: 2rem;
       max-width: var(--max-width);
       margin: auto;
-      gap: 2rem;
+      padding: 2rem 1rem;
     }
 
     .contact-left, .contact-right {
       flex: 1 1 400px;
       max-width: 500px;
+      margin: auto;
     }
 
     .contact-left form {
@@ -104,17 +110,18 @@
     }
 
     .contact-left h2 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .contact-left hr {
       border: none;
       height: 4px;
-      width: 200px;
+      width: 150px;
       background-color: #202020;
       border-radius: 10px;
-      margin-bottom: 1rem;
+      margin: 0 auto 1rem auto;
     }
 
     .contact-inputs {
@@ -228,11 +235,24 @@
     }
 
     p {
-      font-size: 1.2rem;
-      line-height: 1.5;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 1100px) {
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.5rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
       .contact-container {
         flex-direction: column;
         align-items: center;
@@ -240,7 +260,7 @@
       }
 
       .contact-left {
-        max-width: 90vw;
+        max-width: 100%;
         text-align: center;
       }
 
@@ -259,14 +279,6 @@
       .contact-right {
         display: none;
       }
-
-      header h1 {
-        font-size: 2.5rem;
-      }
-
-      header p {
-        font-size: 1.1rem;
-      }
     }
   </style>
 </head>
@@ -274,21 +286,7 @@
 <body>
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
-  <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
-      }
-      document.getElementById("year").textContent = new Date().getFullYear();
-    });
-  </script>
-
-  <a href="file:///Users/noe/Documents/Pro/Site%20internet/MERIC%20-%20Page%20web%202.html" class="back-btn">
+  <a href="/" class="back-btn">
     <i class="fas fa-arrow-left"></i>
   </a>
 
@@ -327,7 +325,17 @@
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+      }
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
